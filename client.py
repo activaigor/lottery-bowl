@@ -5,13 +5,14 @@ import lottery_bowl_pb2_grpc
 
 
 arg_parser = argparse.ArgumentParser(description='Lottery Bowl Client')
+arg_parser.add_argument('--server', type=str, help='Server address', required=True)
 arg_parser.add_argument('--refill', type=int, help='Refill the bowl with a specified number of lots')
 arg_parser.add_argument('--grab', action='store_true', help='Grab a lot from the bowl')
 arg_parser.add_argument('--size', action='store_true', help='Get a size of the bowl')
 
 args = arg_parser.parse_args()
 
-channel = grpc.insecure_channel('localhost:50051')
+channel = grpc.insecure_channel(f'{args.server}:50051')
 stub = lottery_bowl_pb2_grpc.BowlServiceStub(channel)
 
 if args.refill:

@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "lottery"
+version = "0.1.0"
+description = ""
+authors = ["Igor Rizhyi <igorrizhyi@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+grpcio-tools = "^1.68.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

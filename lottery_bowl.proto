@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+service BowlService {
+  rpc GrabLot(GrabLotRequest) returns (Lot) {}
+  rpc RefillBowl(RefillBowlRequest) returns (RefillBowlResponse) {}
+  rpc GetSize(GetSizeRequest) returns (GetSizeResponse) {}
+}
+
+message GrabLotRequest {
+}
+
+message GetSizeRequest {
+}
+
+message Lot {
+  optional string value = 1;
+}
+
+message RefillBowlRequest {
+  int32 amount = 1;
+}
+
+message RefillBowlResponse {
+  string message = 1;
+}
+
+message GetSizeResponse {
+  int32 result = 1;
+}
